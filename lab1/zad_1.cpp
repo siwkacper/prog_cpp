@@ -26,8 +26,14 @@ void complement(char in_nuc){
 
 int main(){
     char in_nuc='N'; /*Initialize nucleotide as any*/
-    cout << "Input a nucleotide symbol [A,T,C,G]: ";
+
+    while (true){    cout << "Input a nucleotide symbol [A,T,C,G] or q to quit:";
     cin >> in_nuc;
-    complement(in_nuc);
+        if (in_nuc == 'q'){
+            break;
+        }else{
+        complement(in_nuc);
+        }
+    }
     return 0;
 }
