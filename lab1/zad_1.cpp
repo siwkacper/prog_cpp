@@ -32,7 +32,7 @@ int main(){
     char in_nuc='N'; /*Initialize nucleotide as any*/
     
     while (true){
-        cout << "Input a nucleotide symbol [A,T,C,G]. Input q to quit:";
+        cout << "Input a nucleotide symbol [A,T,C,G]. Input q to quit: ";
 
         cin >> in_nuc; /*get user input nucleotide*/
 
