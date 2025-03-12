@@ -46,4 +46,6 @@ int main(){
         cout << counter[i]<<'-';
     }
     cout <<'\b'<< endl; //Remove the hanging -
+
+    return 0;
 }
