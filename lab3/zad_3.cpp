@@ -1,21 +1,26 @@
 #include <iostream>
+#include <cstring>
 
 int count_substring( char * dna, char * substring){
+    int counter = 0;
+    int len = strlen(substring);
+    
     while (*dna){
-        while(*substring){
-            int i = 0;
-            if (*dna=*substring){
-                dna++;
-                substring++;
-            }else{
-                dna-i;
-                substring-i;
-            }
-            strlen
+        char * sub = substring;
+        char * str = dna;
+        while(*sub && *str == *sub){
+            str++;
+            sub++;
         }
 
-    }
+        if (*sub == '\0'){
+                counter++;
+            }
 
+        dna++;
+        }
+
+    return counter;
 }
 
 int main(){
@@ -24,9 +29,8 @@ int main(){
 
     std::cin >> dna;
     std::cin >> substring;
-    int l = sizeof(substring);
 
-
+    std::cout << count_substring(dna, substring);
 
     return 0;
 }
