@@ -36,7 +36,8 @@ float count_nucleotides( char * dna, int * A, int *T, int * C, int * G){
     }
     //float gc_pairs = *G + *C / *A + *T + *G + *C;
 
-    return *G + *C / *A + *T + *G + *C;
+    return *G + *C / *A + *T + *G + *C; //In bioinformatics we count the content of g and c not consecutive "gc" occurences. This helps determine the thermal stability of a DNA strand. Thus this output is correct.
+//further reading: https://en.wikipedia.org/wiki/GC-content
 }
 
 int main(){
@@ -47,10 +48,14 @@ int main(){
     cout << "Input nucleotide sequence: ";
     cin >> sequence;
 
-    cout << "GC: " << count_nucleotides(sequence, &A_counter, &T_counter, &C_counter, &G_counter) << "%" << endl;
+    if(check_strand(sequence)){
+        cout << "GC: " << count_nucleotides(sequence, &A_counter, &T_counter, &C_counter, &G_counter) << "%" << endl;
+        cout << "A-T-C-G" << endl << A_counter << "-" << T_counter << "-" << C_counter << "-" << G_counter << "-";/*Header for output*/
 
+    }else{
+        cout << "Sequence not valid.";
+    }
 
-    cout << "A-T-C-G" << endl << A_counter << "-" << T_counter << "-" << C_counter << "-" << G_counter << "-";/*Header for output*/
 
     return 0;
 }
